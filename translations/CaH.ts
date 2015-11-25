@@ -2,17 +2,9 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
-    <name>FirstPage</name>
+    <name>Favourites</name>
     <message>
-        <source>Show Page 2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>UI Template</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hello Sailors</source>
+        <source>Loaded</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -103,17 +95,6 @@
     </message>
     <message>
         <source>Login</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SecondPage</name>
-    <message>
-        <source>Nested Page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Item</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

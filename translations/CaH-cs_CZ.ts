@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="cs_CZ">
+<TS version="2.0" language="cs_CZ">
 <context>
-    <name>FirstPage</name>
+    <name>Favourites</name>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="45"/>
-        <source>Show Page 2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/FirstPage.qml" line="61"/>
-        <source>UI Template</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/FirstPage.qml" line="65"/>
-        <source>Hello Sailors</source>
-        <translation type="unfinished"></translation>
+        <location filename="../qml/pages/Favourites.qml" line="16"/>
+        <source>Loaded</source>
+        <translation>Načteno</translation>
     </message>
 </context>
 <context>
@@ -133,19 +123,6 @@
         <location filename="../qml/pages/RegisterDialog.qml" line="50"/>
         <source>Login</source>
         <translation>Přihlásit</translation>
-    </message>
-</context>
-<context>
-    <name>SecondPage</name>
-    <message>
-        <location filename="../qml/pages/SecondPage.qml" line="42"/>
-        <source>Nested Page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SecondPage.qml" line="49"/>
-        <source>Item</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
