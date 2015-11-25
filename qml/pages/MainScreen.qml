@@ -4,17 +4,19 @@ import Sailfish.Silica 1.0
 
 Page {
 
-    property int f_width: screen.height
+    property int f_width: screen.width
 
     property string jsondata: "" // drží v sobě json string z webu
     property variant json_o: "" // placeholder pro json object
-    property string pic_id: ""
-    property string video_url: ""
-    property bool user_registered: false
-    property string username: ""
-    property string password: ""
+    property string pic_id: "" // drží v sobě id obrázku (nebo random)
+    property string video_url: "" // pokud existuje, má v sobě url videa
+    property bool user_registered: false // zda je uživatel přihlášen
+    property string username: "" // uživatelské jméno
+    property string password: "" // heslo
+    property string comic_id // ID současného komiksu
+    property string user_id // ID uživatele
 
-    allowedOrientations: Orientation.Landscape
+    //allowedOrientations: Orientation.Landscape
     id: page
 
     function load() { // funkce asynchronně vezme data z webu a přiřadí je
@@ -32,6 +34,9 @@ Page {
         }
         xhr.send();
     }
+    /**
+     * Vytvoří připojení k lokální databázi
+     */
     function db() {
         var db = LocalStorage.openDatabaseSync("CaHDB","1.0","Database for users", 1000000);
         return db;
@@ -88,10 +93,11 @@ Page {
                                     } else if(answer == "err_login") {
                                         errorlabel.visible = true;
                                         errortimer.running = true;
-                                        errorlabel.text = qsTr("Sorry, wrong password or username.");
+                                        errorlabel.text = qsTr("Sorry, incorrect password or username.");
                                     } else {
                                         db().transaction(function(tx) {
                                             tx.executeSql("INSERT INTO user (user_id,username,password) VALUES ("+answer+",'"+regUsername+"','"+regPassword+"')");
+                                            user_id = answer;
                                         });
                                         user_registered = true;
                                         errorlabel.visible = true;
@@ -110,6 +116,38 @@ Page {
                 id: addtofavourites
                 visible: user_registered
                 text: qsTr("Add to favourites")
+                onClicked: {
+                    var xhr = new XMLHttpRequest();
+                    var params = "user_id="+user_id+"&comic_id="+comic_id;
+                    xhr.open("POST","http://cah.chrastecky.cz/add-to-favourites/",true);
+                    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                    xhr.setRequestHeader("Content-length", params.length);
+                    xhr.setRequestHeader("Connection", "close");
+                    xhr.onreadystatechange = function() {
+                        if(xhr.readyState == xhr.DONE) {
+                            var answer = xhr.responseText;
+                            console.log(answer);
+                            if(answer == "err_unknown" || answer == "err_mysqli") {
+                                errorlabel.visible = true;
+                                errortimer.running = true;
+                                errorlabel.text = qsTr("Unknown error occured, please contact author.");
+                            } else if(answer == "err_id") {
+                                errorlabel.visible = true;
+                                errortimer.running = true;
+                                errorlabel.text = qsTr("Error: This ID does not exist.");
+                            } else if(answer == "err_already_exists") {
+                                errorlabel.visible = true;
+                                errortimer.running = true;
+                                errorlabel.text = qsTr("You have already added this comic to favourites before.");
+                            } else {
+                                errorlabel.visible = true;
+                                errortimer.running = true;
+                                errorlabel.text = qsTr("Successfully added to your favourites :)");
+                            }
+                        }
+                    }
+                    xhr.send(params);
+                }
             }
 
             MenuItem {
@@ -258,6 +296,7 @@ Page {
                         flickabletop.contentY = 0;
                         //mainimage.visible = true;
                         mainimage.opacity = 1;
+                        comic_id = json_o.id;
                         imagepinch.height = mainimage.height;
                         var koef = mainimage.width / json_o.width;
                         var h = koef * json_o.height;
@@ -292,13 +331,14 @@ Page {
 
             Component.onCompleted: {
                 db().transaction(function(tx) {
-                    tx.executeSql("DROP TABLE IF EXISTS user");
+                    //tx.executeSql("DROP TABLE IF EXISTS user");
                     tx.executeSql("CREATE TABLE IF NOT EXISTS user (user_id INT, username TEXT, password TEXT)");
                     var already_exists = tx.executeSql('SELECT * FROM user');
                     if(already_exists.rows.length) {
                         user_registered = true;
                         username = already_exists.rows.item(0).username;
                         password = already_exists.rows.item(0).password;
+                        user_id = already_exists.rows.item(0).user_id;
                         console.log("already exists");
                     }
                     favouritespull.visible = true;

@@ -2,17 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
-    <name>AlreadyExistsError</name>
-    <message>
-        <source>Error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>We&apos;re sorry, this username already exists :( Try different one</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>FirstPage</name>
     <message>
         <source>Show Page 2</source>
@@ -24,17 +13,6 @@
     </message>
     <message>
         <source>Hello Sailors</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>GeneralError</name>
-    <message>
-        <source>Error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unknown error occured, please contact author</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -81,11 +59,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sorry, wrong password or username.</source>
+        <source>Add to favourites</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add to favourites</source>
+        <source>Sorry, incorrect password or username.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error: This ID does not exist.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Successfully added to your favourites :)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have already added this comic to favourites before.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

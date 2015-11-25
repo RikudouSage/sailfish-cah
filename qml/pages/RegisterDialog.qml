@@ -8,6 +8,8 @@ Dialog {
 
     property int f_width: screen.width
 
+    //allowedOrientations: Orientation.Landscape
+
     property string username
     property string password
     property bool login: false // zda se jedná o login nebo registraci

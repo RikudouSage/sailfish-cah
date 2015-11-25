@@ -22,5 +22,4 @@ HEADERS += \
 
 DISTFILES += \
     qml/pages/RegisterDialog.qml \
-    qml/pages/GeneralError.qml \
-    qml/pages/AlreadyExistsError.qml
+    qml/pages/Favourites.qml
