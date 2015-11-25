@@ -2,3 +2,4 @@
 *.o
 moc_ping.cpp
 /translations/*.qm
+/CaH
