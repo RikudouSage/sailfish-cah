@@ -4,7 +4,23 @@
 <context>
     <name>Favourites</name>
     <message>
-        <source>Loaded</source>
+        <source>Loading</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading user info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error: ID does not exist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>It seems that you did not add any favorite images.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite comics</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -32,10 +48,6 @@
     </message>
     <message>
         <source>Oops, it looks like you are not connected to internet :(</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Favourites</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -68,6 +80,14 @@
     </message>
     <message>
         <source>You have already added this comic to favourites before.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

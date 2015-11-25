@@ -4,7 +4,7 @@ import Sailfish.Silica 1.0
 
 Page {
 
-    property int f_width: page.orientation == Orientation.Portrait?screen.width:screen.height
+    property int f_width: screen.height
 
     property string jsondata: "" // drží v sobě json string z webu
     property variant json_o: "" // placeholder pro json object
@@ -15,6 +15,7 @@ Page {
     property string password: "" // heslo
     property string comic_id // ID současného komiksu
     property string user_id // ID uživatele
+    property string delegated_id // ID z oblíbených
 
     allowedOrientations: Orientation.Landscape
     id: page
@@ -61,6 +62,10 @@ Page {
                     errorlabel.visible = true;
                     errortimer.running = true;
                     errorlabel.text = qsTr("Error: This ID does not exist.");
+                    db().transaction(function(tx) {
+                        tx.executeSql("DELETE FROM user");
+                        user_registered = false;
+                    });
                 } else if(answer == "err_already_exists") {
                     errorlabel.visible = true;
                     errortimer.running = true;
@@ -84,7 +89,7 @@ Page {
 
             MenuItem {
                 id: favouritespull
-                text: qsTr("Favourites")
+                text: qsTr("Favorites")
                 visible: false
                 onClicked: {
                     if(user_registered) {
@@ -148,7 +153,7 @@ Page {
             MenuItem {
                 id: addtofavourites
                 visible: user_registered
-                text: qsTr("Add to favourites")
+                text: qsTr("Add to favorites")
                 onClicked: {
                     add_to_favourites();
                 }
@@ -341,10 +346,30 @@ Page {
                 }
             }
 
+            Timer {
+                id: currfavorite
+                interval: 500
+                running: true
+                repeat: true
+                onTriggered: {
+                    db().transaction(function(tx) {
+                        var res = tx.executeSql("SELECT pic_id FROM current_favorite");
+                        if(res.rows.length) {
+                            currfavorite.running = false;
+                            pic_id = res.rows.item(0).pic_id;
+                            tx.executeSql("DELETE FROM current_favorite");
+                            load();
+                            currfavorite.running = true;
+                        }
+                    });
+                }
+            }
+
             Component.onCompleted: {
                 db().transaction(function(tx) {
                     //tx.executeSql("DROP TABLE IF EXISTS user");
                     tx.executeSql("CREATE TABLE IF NOT EXISTS user (user_id INT, username TEXT, password TEXT)");
+                    tx.executeSql("CREATE TABLE IF NOT EXISTS current_favorite (pic_id INT)");
                     var already_exists = tx.executeSql('SELECT * FROM user');
                     if(already_exists.rows.length) {
                         user_registered = true;
