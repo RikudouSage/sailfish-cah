@@ -3,3 +3,5 @@
 moc_ping.cpp
 /translations/*.qm
 /CaH
+/Makefile
+/*.list
