@@ -24,48 +24,48 @@
     <message>
         <location filename="../qml/pages/MainScreen.qml" line="54"/>
         <source>Favourites</source>
-        <translation type="unfinished"></translation>
+        <translation>Oblíbené</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainScreen.qml" line="88"/>
         <location filename="../qml/pages/MainScreen.qml" line="133"/>
         <source>Unknown error occured, please contact author.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastala neznámá chyba, prosím, kontaktujte autora.</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainScreen.qml" line="92"/>
         <source>We&apos;re sorry, this username already exists. Try different one.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je nám líto, toto uživatelské jméno již existuje. Zkuste prosím jiné.</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainScreen.qml" line="96"/>
         <source>Sorry, incorrect password or username.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pardon, špatné jméno nebo heslo.</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainScreen.qml" line="105"/>
         <source>Successfully logged in, you can now save favourites.</source>
-        <translation type="unfinished"></translation>
+        <translation>Přihlášení úspěšné, nyní můžete ukládat oblíbené.</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainScreen.qml" line="118"/>
         <source>Add to favourites</source>
-        <translation type="unfinished"></translation>
+        <translation>Přidat k oblíbeným</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainScreen.qml" line="137"/>
         <source>Error: This ID does not exist.</source>
-        <translation type="unfinished"></translation>
+        <translation>Chyba: Toto ID neexistuje.</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainScreen.qml" line="141"/>
         <source>You have already added this comic to favourites before.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tento komiks jste již přidali do svých oblíbených dříve.</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainScreen.qml" line="145"/>
         <source>Successfully added to your favourites :)</source>
-        <translation type="unfinished"></translation>
+        <translation>Úspěšně přidáno do oblíbených :)</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainScreen.qml" line="155"/>
@@ -106,32 +106,32 @@
     <message>
         <location filename="../qml/pages/RegisterDialog.qml" line="30"/>
         <source>Register</source>
-        <translation type="unfinished"></translation>
+        <translation>Registrovat</translation>
     </message>
     <message>
         <location filename="../qml/pages/RegisterDialog.qml" line="31"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Zrušit</translation>
     </message>
     <message>
         <location filename="../qml/pages/RegisterDialog.qml" line="36"/>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Uživatelské jméno</translation>
     </message>
     <message>
         <location filename="../qml/pages/RegisterDialog.qml" line="42"/>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Heslo</translation>
     </message>
     <message>
         <location filename="../qml/pages/RegisterDialog.qml" line="45"/>
         <source>Already registered? Log in here</source>
-        <translation type="unfinished"></translation>
+        <translation>Jste již registrován? Přihlašte se zde</translation>
     </message>
     <message>
         <location filename="../qml/pages/RegisterDialog.qml" line="50"/>
         <source>Login</source>
-        <translation type="unfinished"></translation>
+        <translation>Přihlásit</translation>
     </message>
 </context>
 <context>

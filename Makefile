@@ -49,8 +49,7 @@ SOURCES       = src/CaH.cpp moc_ping.cpp
 OBJECTS       = CaH.o \
 		moc_ping.o
 DIST          = qml/pages/RegisterDialog.qml \
-		qml/pages/GeneralError.qml \
-		qml/pages/AlreadyExistsError.qml \
+		qml/pages/Favourites.qml \
 		/usr/share/qt5/mkspecs/features/spec_pre.prf \
 		/usr/share/qt5/mkspecs/common/shell-unix.conf \
 		/usr/share/qt5/mkspecs/common/unix.conf \
@@ -923,8 +922,8 @@ moc_ping.o: moc_ping.cpp
 
 install_qm: first FORCE
 	@test -d $(INSTALL_ROOT)/usr/share/CaH/translations || mkdir -p $(INSTALL_ROOT)/usr/share/CaH/translations
-	lupdate -noobsolete "/home/mersdk/share/CaH/src" "/home/mersdk/share/CaH/qml" -ts "/home/mersdk/share/CaH/translations/CaH.ts" "/home/mersdk/share/CaH/translations/CaH-cs_CZ.ts" && mkdir -p translations && [ "/home/mersdk/share/CaH" != "/home/mersdk/share/CaH" -a 1 -eq 1 ] && cp -af "/home/mersdk/share/CaH/translations/CaH-cs_CZ.ts" "/home/mersdk/share/CaH/translations" || : ; [ 1 -eq 1 ] && lrelease -nounfinished "/home/mersdk/share/CaH/translations/CaH-cs_CZ.ts" || :
-	-$(INSTALL_FILE) /home/mersdk/share/CaH/translations/CaH-cs_CZ.qm $(INSTALL_ROOT)/usr/share/CaH/translations/
+	lupdate -noobsolete "/home/mersdk/share/github/sailfish-cah/src" "/home/mersdk/share/github/sailfish-cah/qml" -ts "/home/mersdk/share/github/sailfish-cah/translations/CaH.ts" "/home/mersdk/share/github/sailfish-cah/translations/CaH-cs_CZ.ts" && mkdir -p translations && [ "/home/mersdk/share/github/sailfish-cah" != "/home/mersdk/share/github/sailfish-cah" -a 1 -eq 1 ] && cp -af "/home/mersdk/share/github/sailfish-cah/translations/CaH-cs_CZ.ts" "/home/mersdk/share/github/sailfish-cah/translations" || : ; [ 1 -eq 1 ] && lrelease -nounfinished "/home/mersdk/share/github/sailfish-cah/translations/CaH-cs_CZ.ts" || :
+	-$(INSTALL_FILE) /home/mersdk/share/github/sailfish-cah/translations/CaH-cs_CZ.qm $(INSTALL_ROOT)/usr/share/CaH/translations/
 
 uninstall_qm: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/share/CaH/translations/CaH-cs_CZ.qm
@@ -933,7 +932,7 @@ uninstall_qm: FORCE
 
 install_qml: first FORCE
 	@test -d $(INSTALL_ROOT)/usr/share/CaH || mkdir -p $(INSTALL_ROOT)/usr/share/CaH
-	-$(INSTALL_DIR) /home/mersdk/share/CaH/qml $(INSTALL_ROOT)/usr/share/CaH/
+	-$(INSTALL_DIR) /home/mersdk/share/github/sailfish-cah/qml $(INSTALL_ROOT)/usr/share/CaH/
 
 uninstall_qml: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/share/CaH/qml
@@ -952,7 +951,7 @@ uninstall_target: FORCE
 
 install_desktop: first FORCE
 	@test -d $(INSTALL_ROOT)/usr/share/applications || mkdir -p $(INSTALL_ROOT)/usr/share/applications
-	-$(INSTALL_FILE) /home/mersdk/share/CaH/CaH.desktop $(INSTALL_ROOT)/usr/share/applications/
+	-$(INSTALL_FILE) /home/mersdk/share/github/sailfish-cah/CaH.desktop $(INSTALL_ROOT)/usr/share/applications/
 
 uninstall_desktop: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/share/applications/CaH.desktop
@@ -961,7 +960,7 @@ uninstall_desktop: FORCE
 
 install_icon: first FORCE
 	@test -d $(INSTALL_ROOT)/usr/share/icons/hicolor/86x86/apps || mkdir -p $(INSTALL_ROOT)/usr/share/icons/hicolor/86x86/apps
-	-$(INSTALL_PROGRAM) /home/mersdk/share/CaH/CaH.png $(INSTALL_ROOT)/usr/share/icons/hicolor/86x86/apps/
+	-$(INSTALL_PROGRAM) /home/mersdk/share/github/sailfish-cah/CaH.png $(INSTALL_ROOT)/usr/share/icons/hicolor/86x86/apps/
 	-: $(INSTALL_ROOT)/usr/share/icons/hicolor/86x86/apps/CaH.png
 
 uninstall_icon: FORCE
