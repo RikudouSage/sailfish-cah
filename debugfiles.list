@@ -1,8 +1,0 @@
-%dir /usr/lib/debug
-%dir /usr/lib/debug/usr
-%dir /usr/lib/debug/usr/bin
-%dir /usr/lib/debug/.build-id
-%dir /usr/lib/debug/.build-id/76
-/usr/lib/debug/usr/bin/CaH.debug
-/usr/lib/debug/.build-id/76/e43fcab9b2d897700280222fa80da3601593dc.debug
-/usr/lib/debug/.build-id/76/e43fcab9b2d897700280222fa80da3601593dc
