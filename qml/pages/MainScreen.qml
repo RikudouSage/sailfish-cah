@@ -4,7 +4,7 @@ import Sailfish.Silica 1.0
 
 Page {
 
-    property int f_width: screen.width
+    property int f_width: page.orientation == Orientation.Portrait?screen.width:screen.height
 
     property string jsondata: "" // drží v sobě json string z webu
     property variant json_o: "" // placeholder pro json object
@@ -16,7 +16,7 @@ Page {
     property string comic_id // ID současného komiksu
     property string user_id // ID uživatele
 
-    //allowedOrientations: Orientation.Landscape
+    allowedOrientations: Orientation.Landscape
     id: page
 
     function load() { // funkce asynchronně vezme data z webu a přiřadí je
@@ -40,6 +40,39 @@ Page {
     function db() {
         var db = LocalStorage.openDatabaseSync("CaHDB","1.0","Database for users", 1000000);
         return db;
+    }
+
+    function add_to_favourites() {
+        var xhr = new XMLHttpRequest();
+        var params = "user_id="+user_id+"&comic_id="+comic_id;
+        xhr.open("POST","http://cah.chrastecky.cz/add-to-favourites/",true);
+        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xhr.setRequestHeader("Content-length", params.length);
+        xhr.setRequestHeader("Connection", "close");
+        xhr.onreadystatechange = function() {
+            if(xhr.readyState == xhr.DONE) {
+                var answer = xhr.responseText;
+                console.log(answer);
+                if(answer == "err_unknown" || answer == "err_mysqli") {
+                    errorlabel.visible = true;
+                    errortimer.running = true;
+                    errorlabel.text = qsTr("Unknown error occured, please contact author.");
+                } else if(answer == "err_id") {
+                    errorlabel.visible = true;
+                    errortimer.running = true;
+                    errorlabel.text = qsTr("Error: This ID does not exist.");
+                } else if(answer == "err_already_exists") {
+                    errorlabel.visible = true;
+                    errortimer.running = true;
+                    errorlabel.text = qsTr("You have already added this comic to favourites before.");
+                } else {
+                    errorlabel.visible = true;
+                    errortimer.running = true;
+                    errorlabel.text = qsTr("Successfully added to your favourites :)");
+                }
+            }
+        }
+        xhr.send(params);
     }
 
     SilicaFlickable {
@@ -117,36 +150,7 @@ Page {
                 visible: user_registered
                 text: qsTr("Add to favourites")
                 onClicked: {
-                    var xhr = new XMLHttpRequest();
-                    var params = "user_id="+user_id+"&comic_id="+comic_id;
-                    xhr.open("POST","http://cah.chrastecky.cz/add-to-favourites/",true);
-                    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-                    xhr.setRequestHeader("Content-length", params.length);
-                    xhr.setRequestHeader("Connection", "close");
-                    xhr.onreadystatechange = function() {
-                        if(xhr.readyState == xhr.DONE) {
-                            var answer = xhr.responseText;
-                            console.log(answer);
-                            if(answer == "err_unknown" || answer == "err_mysqli") {
-                                errorlabel.visible = true;
-                                errortimer.running = true;
-                                errorlabel.text = qsTr("Unknown error occured, please contact author.");
-                            } else if(answer == "err_id") {
-                                errorlabel.visible = true;
-                                errortimer.running = true;
-                                errorlabel.text = qsTr("Error: This ID does not exist.");
-                            } else if(answer == "err_already_exists") {
-                                errorlabel.visible = true;
-                                errortimer.running = true;
-                                errorlabel.text = qsTr("You have already added this comic to favourites before.");
-                            } else {
-                                errorlabel.visible = true;
-                                errortimer.running = true;
-                                errorlabel.text = qsTr("Successfully added to your favourites :)");
-                            }
-                        }
-                    }
-                    xhr.send(params);
+                    add_to_favourites();
                 }
             }
 
@@ -187,6 +191,14 @@ Page {
                 onClicked: {
                     pic_id = "random"
                     load()
+                }
+            }
+            MenuItem {
+                id: addtofavourites2
+                visible: user_registered
+                text: qsTr("Add to favourites")
+                onClicked: {
+                    add_to_favourites();
                 }
             }
         }

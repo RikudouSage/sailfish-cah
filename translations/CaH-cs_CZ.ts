@@ -22,81 +22,82 @@
 <context>
     <name>MainScreen</name>
     <message>
-        <location filename="../qml/pages/MainScreen.qml" line="54"/>
+        <location filename="../qml/pages/MainScreen.qml" line="87"/>
         <source>Favourites</source>
         <translation>Oblíbené</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainScreen.qml" line="88"/>
-        <location filename="../qml/pages/MainScreen.qml" line="133"/>
+        <location filename="../qml/pages/MainScreen.qml" line="59"/>
+        <location filename="../qml/pages/MainScreen.qml" line="121"/>
         <source>Unknown error occured, please contact author.</source>
         <translation>Nastala neznámá chyba, prosím, kontaktujte autora.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainScreen.qml" line="92"/>
+        <location filename="../qml/pages/MainScreen.qml" line="125"/>
         <source>We&apos;re sorry, this username already exists. Try different one.</source>
         <translation>Je nám líto, toto uživatelské jméno již existuje. Zkuste prosím jiné.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainScreen.qml" line="96"/>
+        <location filename="../qml/pages/MainScreen.qml" line="129"/>
         <source>Sorry, incorrect password or username.</source>
         <translation>Pardon, špatné jméno nebo heslo.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainScreen.qml" line="105"/>
+        <location filename="../qml/pages/MainScreen.qml" line="138"/>
         <source>Successfully logged in, you can now save favourites.</source>
         <translation>Přihlášení úspěšné, nyní můžete ukládat oblíbené.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainScreen.qml" line="118"/>
+        <location filename="../qml/pages/MainScreen.qml" line="151"/>
+        <location filename="../qml/pages/MainScreen.qml" line="199"/>
         <source>Add to favourites</source>
         <translation>Přidat k oblíbeným</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainScreen.qml" line="137"/>
+        <location filename="../qml/pages/MainScreen.qml" line="63"/>
         <source>Error: This ID does not exist.</source>
         <translation>Chyba: Toto ID neexistuje.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainScreen.qml" line="141"/>
+        <location filename="../qml/pages/MainScreen.qml" line="67"/>
         <source>You have already added this comic to favourites before.</source>
         <translation>Tento komiks jste již přidali do svých oblíbených dříve.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainScreen.qml" line="145"/>
+        <location filename="../qml/pages/MainScreen.qml" line="71"/>
         <source>Successfully added to your favourites :)</source>
         <translation>Úspěšně přidáno do oblíbených :)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainScreen.qml" line="155"/>
-        <location filename="../qml/pages/MainScreen.qml" line="185"/>
+        <location filename="../qml/pages/MainScreen.qml" line="159"/>
+        <location filename="../qml/pages/MainScreen.qml" line="189"/>
         <source>Random</source>
         <translation>Náhodný</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainScreen.qml" line="165"/>
+        <location filename="../qml/pages/MainScreen.qml" line="169"/>
         <source>Next</source>
         <translation>Další</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainScreen.qml" line="177"/>
+        <location filename="../qml/pages/MainScreen.qml" line="181"/>
         <source>Previous</source>
         <translation>Předchozí</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainScreen.qml" line="202"/>
+        <location filename="../qml/pages/MainScreen.qml" line="214"/>
         <source>Cyanide &amp; Happiness</source>
         <translation>Kyanid a štěstí (Cyanide &amp; Happiness)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainScreen.qml" line="225"/>
-        <location filename="../qml/pages/MainScreen.qml" line="322"/>
+        <location filename="../qml/pages/MainScreen.qml" line="237"/>
+        <location filename="../qml/pages/MainScreen.qml" line="334"/>
         <source>Loading...</source>
         <translation>Načítání...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainScreen.qml" line="327"/>
-        <location filename="../qml/pages/MainScreen.qml" line="347"/>
+        <location filename="../qml/pages/MainScreen.qml" line="339"/>
+        <location filename="../qml/pages/MainScreen.qml" line="359"/>
         <source>Oops, it looks like you are not connected to internet :(</source>
         <translation>Hups, vypadá to, že nejste připojeni k internetu :(</translation>
     </message>

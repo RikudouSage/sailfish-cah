@@ -6,9 +6,9 @@ Dialog {
 
     id: registerpage
 
-    property int f_width: screen.width
+    property int f_width: screen.height
 
-    //allowedOrientations: Orientation.Landscape
+    allowedOrientations: Orientation.Landscape
 
     property string username
     property string password
