@@ -9,7 +9,7 @@ Name:       CaH
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Cyanide & Happiness
 Version:    1.3
-Release:    1
+Release:    2
 Group:      Qt/Qt
 License:    WTFPL
 URL:        http://www.chrastecky.cz
