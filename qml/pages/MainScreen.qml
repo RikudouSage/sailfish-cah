@@ -139,7 +139,7 @@ Page {
                                         errorlabel.text = qsTr("Sorry, incorrect password or username.");
                                     } else {
                                         db().transaction(function(tx) {
-                                            tx.executeSql("INSERT INTO user (user_id,username,password) VALUES ("+answer+",'"+regUsername+"','"+regPassword+"')");
+                                            tx.executeSql("INSERT INTO user (user_id,username,password) VALUES (?,?,?)",[answer,regUsername,regPassword]);
                                             user_id = answer;
                                         });
                                         user_registered = true;
