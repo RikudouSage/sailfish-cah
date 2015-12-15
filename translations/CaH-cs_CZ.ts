@@ -22,27 +22,27 @@
 <context>
     <name>Favourites</name>
     <message>
-        <location filename="../qml/pages/Favourites.qml" line="31"/>
+        <location filename="../qml/pages/Favourites.qml" line="28"/>
         <source>Favorite comics</source>
         <translation>Oblíbené komiksy</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Favourites.qml" line="37"/>
+        <location filename="../qml/pages/Favourites.qml" line="34"/>
         <source>Loading</source>
         <translation>Načítání</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Favourites.qml" line="74"/>
+        <location filename="../qml/pages/Favourites.qml" line="70"/>
         <source>Loading user info</source>
         <translation>Načítání uživatelských informací</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Favourites.qml" line="89"/>
+        <location filename="../qml/pages/Favourites.qml" line="85"/>
         <source>Error: ID does not exist</source>
         <translation>Chyba: ID neexistuje</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Favourites.qml" line="91"/>
+        <location filename="../qml/pages/Favourites.qml" line="87"/>
         <source>It seems that you did not add any favorite images.</source>
         <translation>Zdá se, že jste nepřidali žádné oblíbené obrázky.</translation>
     </message>

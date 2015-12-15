@@ -8,7 +8,6 @@ Page {
     property string user_id
     property var jsondata: false
     property int button_height: 70
-    anchors.fill: parent
 
     function db() {
         var db = LocalStorage.openDatabaseSync("CaHDB","1.0","Database for users", 1000000);
@@ -54,7 +53,7 @@ Page {
                     text: mtext
                     onClicked: {
                         db().transaction(function(tx) {
-                            tx.executeSql("INSERT INTO current_favorite (pic_id) VALUES ("+mid+")");
+                            tx.executeSql("INSERT INTO current_favorite (pic_id) VALUES (?)",[mid]);
                             pageStack.pop();
                         });
                     }
@@ -96,7 +95,7 @@ Page {
                                     lmodel.append({mtext: json_o[i]["desc"], mid: json_o[i]["id"]});
                                     console.log(lmodel.count);
                                 }
-                                listview.height = i*70;
+                                listview.height = i*(button_height+10);
                                 console.log(listview.height,page.height,flickable.height,maincolumn.height);
                             }
                         }
