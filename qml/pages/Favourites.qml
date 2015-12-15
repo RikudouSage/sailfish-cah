@@ -11,6 +11,7 @@ Page {
     property int button_height: 70
     width: f_width
 
+    anchors.fill: parent
     function db() {
         var db = LocalStorage.openDatabaseSync("CaHDB","1.0","Database for users", 1000000);
         return db;
