@@ -10,7 +10,6 @@ Page {
     property var jsondata: false
     property int button_height: 70
     width: f_width
-    height: listview.height + 50
 
     function db() {
         var db = LocalStorage.openDatabaseSync("CaHDB","1.0","Database for users", 1000000);
@@ -19,13 +18,12 @@ Page {
 
     SilicaFlickable {
         id: flickable
-        contentHeight: page.height
+        contentHeight: maincolumn.height
         height: page.height
 
         Column {
             id: maincolumn
             width: f_width
-            height: page.height
 
             PageHeader {
                 id: header
