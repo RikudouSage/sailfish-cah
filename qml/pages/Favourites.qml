@@ -5,13 +5,11 @@ import Sailfish.Silica 1.0
 Page {
     id: page
     allowedOrientations: Orientation.Landscape
-    property int f_width: screen.height
     property string user_id
     property var jsondata: false
     property int button_height: 70
-    width: f_width
-
     anchors.fill: parent
+
     function db() {
         var db = LocalStorage.openDatabaseSync("CaHDB","1.0","Database for users", 1000000);
         return db;
@@ -20,11 +18,11 @@ Page {
     SilicaFlickable {
         id: flickable
         contentHeight: maincolumn.height
-        height: page.height
+        anchors.fill: parent
 
         Column {
             id: maincolumn
-            width: f_width
+            width: parent.width // propagate width/height whenever possible.
 
             PageHeader {
                 id: header
@@ -45,15 +43,14 @@ Page {
             }
 
 
-
-            ListView {
-                anchors.top: infolabel.bottom
+            // In here, inside column, use repeater instead of listview
+            Repeater {
+                //anchors.top: infolabel.bottom // do not anchor inside columns. it wont work.
                 id: listview
                 model: lmodel
-                height: 100
-                delegate: Button {
+                Button {
                     height: button_height
-                    width: f_width
+                    width: parent.width
                     text: mtext
                     onClicked: {
                         db().transaction(function(tx) {
@@ -65,7 +62,7 @@ Page {
             }
 
             Item {
-                width: f_width
+                width: parent.width
                 height: 50
             }
         }
