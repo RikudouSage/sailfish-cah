@@ -22,4 +22,5 @@ HEADERS += \
 
 DISTFILES += \
     qml/pages/RegisterDialog.qml \
-    qml/pages/Favourites.qml
+    qml/pages/Favourites.qml \
+    qml/pages/AddFavouriteDialog.qml

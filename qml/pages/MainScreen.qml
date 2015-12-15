@@ -44,40 +44,45 @@ Page {
     }
 
     function add_to_favourites() {
-        var xhr = new XMLHttpRequest();
-        var params = "user_id="+user_id+"&comic_id="+comic_id;
-        xhr.open("POST","http://cah.chrastecky.cz/add-to-favourites/",true);
-        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-        xhr.setRequestHeader("Content-length", params.length);
-        xhr.setRequestHeader("Connection", "close");
-        xhr.onreadystatechange = function() {
-            if(xhr.readyState == xhr.DONE) {
-                var answer = xhr.responseText;
-                console.log(answer);
-                if(answer == "err_unknown" || answer == "err_mysqli") {
-                    errorlabel.visible = true;
-                    errortimer.running = true;
-                    errorlabel.text = qsTr("Unknown error occured, please contact author.");
-                } else if(answer == "err_id") {
-                    errorlabel.visible = true;
-                    errortimer.running = true;
-                    errorlabel.text = qsTr("Error: This ID does not exist.");
-                    db().transaction(function(tx) {
-                        tx.executeSql("DELETE FROM user");
-                        user_registered = false;
-                    });
-                } else if(answer == "err_already_exists") {
-                    errorlabel.visible = true;
-                    errortimer.running = true;
-                    errorlabel.text = qsTr("You have already added this comic to favourites before.");
-                } else {
-                    errorlabel.visible = true;
-                    errortimer.running = true;
-                    errorlabel.text = qsTr("Successfully added to your favourites :)");
+
+        var dialog = pageStack.push("AddFavouriteDialog.qml", {"pic_id": comic_id});
+        dialog.accepted.connect(function() {
+            var description = dialog.description;
+            var xhr = new XMLHttpRequest();
+            var params = "user_id="+user_id+"&comic_id="+comic_id+"&description="+description;
+            xhr.open("POST","http://cah.chrastecky.cz/add-to-favourites/",true);
+            xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            xhr.setRequestHeader("Content-length", params.length);
+            xhr.setRequestHeader("Connection", "close");
+            xhr.onreadystatechange = function() {
+                if(xhr.readyState == xhr.DONE) {
+                    var answer = xhr.responseText;
+                    console.log(answer);
+                    if(answer == "err_unknown" || answer == "err_mysqli") {
+                        errorlabel.visible = true;
+                        errortimer.running = true;
+                        errorlabel.text = qsTr("Unknown error occured, please contact author.");
+                    } else if(answer == "err_id") {
+                        errorlabel.visible = true;
+                        errortimer.running = true;
+                        errorlabel.text = qsTr("Error: This ID does not exist.");
+                        db().transaction(function(tx) {
+                            tx.executeSql("DELETE FROM user");
+                            user_registered = false;
+                        });
+                    } else if(answer == "err_already_exists") {
+                        errorlabel.visible = true;
+                        errortimer.running = true;
+                        errorlabel.text = qsTr("You have already added this comic to favourites before.");
+                    } else {
+                        errorlabel.visible = true;
+                        errortimer.running = true;
+                        errorlabel.text = qsTr("Successfully added to your favourites :)");
+                    }
                 }
             }
-        }
-        xhr.send(params);
+            xhr.send(params);
+        });
     }
 
     SilicaFlickable {
